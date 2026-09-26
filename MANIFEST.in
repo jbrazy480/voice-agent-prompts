@@ -1,0 +1,12 @@
+include catalog.json index.html requirements*.txt .env.example CHANGELOG.md CONTRIBUTING.md
+recursive-include prompts *.md
+recursive-include templates *.md
+recursive-include examples *.md
+recursive-include framework *.md
+recursive-include modules *.md
+recursive-include skills *.md
+recursive-include commands *.md
+recursive-include tests *.py *.md
+recursive-include scripts *.py
+recursive-include docs *.svg *.gif
+recursive-include voice_agent_prompts/data *.json *.md

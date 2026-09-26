@@ -1,0 +1,344 @@
+[
+  {
+    "path": "prompts/field-tested/01-inbound-medspa-transfer.md",
+    "industry": "medspa",
+    "call_type": "inbound",
+    "goal": "Field-Tested: Inbound Medspa (transfer-when-hot)"
+  },
+  {
+    "path": "prompts/field-tested/02-outbound-medspa-two-slot.md",
+    "industry": "medspa",
+    "call_type": "outbound-optin",
+    "goal": "Field-Tested: Outbound Medspa (two-slot specials)"
+  },
+  {
+    "path": "prompts/field-tested/03-inbound-medical-social.md",
+    "industry": "medical",
+    "call_type": "inbound",
+    "goal": "Field-Tested: Inbound Medical / Telemed (social)"
+  },
+  {
+    "path": "prompts/field-tested/05-inbound-dental.md",
+    "industry": "dental",
+    "call_type": "inbound",
+    "goal": "Field-Tested: Inbound Dental (front desk)"
+  },
+  {
+    "path": "prompts/generated-examples/b2b-saas.md",
+    "industry": "b2b-saas",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: your platform (B2B software)"
+  },
+  {
+    "path": "prompts/generated-examples/healthcare.md",
+    "industry": "healthcare",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: Lakeside Family Clinic (healthcare clinic)"
+  },
+  {
+    "path": "prompts/generated-examples/hvac.md",
+    "industry": "hvac",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: Summit Heating and Air (HVAC and home services)"
+  },
+  {
+    "path": "prompts/generated-examples/insurance.md",
+    "industry": "insurance",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: Guardian Insurance Partners (insurance)"
+  },
+  {
+    "path": "prompts/generated-examples/marketing-agency.md",
+    "industry": "marketing-agency",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: your agency (marketing agency)"
+  },
+  {
+    "path": "prompts/generated-examples/medspa.md",
+    "industry": "medspa",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: Glow Aesthetics Medspa (medical spa)"
+  },
+  {
+    "path": "prompts/generated-examples/real-estate.md",
+    "industry": "real-estate",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: Coastline Realty Group (real estate)"
+  },
+  {
+    "path": "prompts/generated-examples/solar.md",
+    "industry": "solar",
+    "call_type": "outbound-optin",
+    "goal": "RizzDial Voice AI Prompt: BrightPath Solar (solar)"
+  },
+  {
+    "path": "prompts/inbound/automotive-inbound.md",
+    "industry": "automotive",
+    "call_type": "inbound",
+    "goal": "Converting: Automotive inbound (service or sales)"
+  },
+  {
+    "path": "prompts/inbound/beauty-salon-inbound.md",
+    "industry": "beauty-salon",
+    "call_type": "inbound",
+    "goal": "Converting: Beauty salon inbound (hair, nails, spa booking)"
+  },
+  {
+    "path": "prompts/inbound/credit-repair-inbound.md",
+    "industry": "credit-repair",
+    "call_type": "inbound",
+    "goal": "Converting: Credit repair inbound (opt-in call-in)"
+  },
+  {
+    "path": "prompts/inbound/education-inbound.md",
+    "industry": "education",
+    "call_type": "inbound",
+    "goal": "Converting: Education / admissions inbound"
+  },
+  {
+    "path": "prompts/inbound/fitness-inbound.md",
+    "industry": "fitness",
+    "call_type": "inbound",
+    "goal": "Converting: Fitness / gym inbound (tour or class)"
+  },
+  {
+    "path": "prompts/inbound/hvac-inbound.md",
+    "industry": "hvac",
+    "call_type": "inbound",
+    "goal": "Converting: HVAC inbound (repair or diagnostic)"
+  },
+  {
+    "path": "prompts/inbound/insurance-inbound.md",
+    "industry": "insurance",
+    "call_type": "inbound",
+    "goal": "Converting: Insurance inbound (quote or service)"
+  },
+  {
+    "path": "prompts/inbound/legal-pi-inbound.md",
+    "industry": "legal-pi",
+    "call_type": "inbound",
+    "goal": "Converting: Legal / PI intake (inbound)"
+  },
+  {
+    "path": "prompts/inbound/marketing-agency-inbound.md",
+    "industry": "marketing-agency",
+    "call_type": "inbound",
+    "goal": "Converting: Marketing agency inbound (inquiry)"
+  },
+  {
+    "path": "prompts/inbound/mortgage-inbound.md",
+    "industry": "mortgage",
+    "call_type": "inbound",
+    "goal": "Converting: Mortgage inbound (they called about a loan)"
+  },
+  {
+    "path": "prompts/inbound/real-estate-inbound.md",
+    "industry": "real-estate",
+    "call_type": "inbound",
+    "goal": "Converting: Real estate inbound (they called the office)"
+  },
+  {
+    "path": "prompts/inbound/restaurant-inbound.md",
+    "industry": "restaurant",
+    "call_type": "inbound",
+    "goal": "Converting: Restaurant inbound (reservations or events)"
+  },
+  {
+    "path": "prompts/inbound/roofing-inbound.md",
+    "industry": "roofing",
+    "call_type": "inbound",
+    "goal": "Converting: Roofing inbound (leak or storm)"
+  },
+  {
+    "path": "prompts/inbound/senior-living-inbound.md",
+    "industry": "senior-living",
+    "call_type": "inbound",
+    "goal": "Converting: Senior living inbound (family call)"
+  },
+  {
+    "path": "prompts/inbound/solar-inbound.md",
+    "industry": "solar",
+    "call_type": "inbound",
+    "goal": "Converting: Solar inbound (they called us or a mailer)"
+  },
+  {
+    "path": "prompts/outbound-cold/solar-outbound-cold.md",
+    "industry": "solar",
+    "call_type": "outbound-cold",
+    "goal": "Converting: Solar outbound cold (aged list)"
+  },
+  {
+    "path": "prompts/outbound-optin/automotive-outbound-optin.md",
+    "industry": "automotive",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Automotive outbound (service-due or internet lead)"
+  },
+  {
+    "path": "prompts/outbound-optin/b2b-saas-outbound-optin.md",
+    "industry": "b2b-saas",
+    "call_type": "outbound-optin",
+    "goal": "Converting: B2B SaaS demo setter (outbound opt-in)"
+  },
+  {
+    "path": "prompts/outbound-optin/credit-repair-outbound-optin.md",
+    "industry": "credit-repair",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Credit repair outbound (opt-in)"
+  },
+  {
+    "path": "prompts/outbound-optin/hvac-outbound-optin.md",
+    "industry": "hvac",
+    "call_type": "outbound-optin",
+    "goal": "Converting: HVAC outbound (membership or quote follow-up)"
+  },
+  {
+    "path": "prompts/outbound-optin/insurance-outbound-optin.md",
+    "industry": "insurance",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Insurance outbound (auto or home quote follow-up)"
+  },
+  {
+    "path": "prompts/outbound-optin/marketing-agency-outbound-optin.md",
+    "industry": "marketing-agency",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Marketing agency outbound (form fill)"
+  },
+  {
+    "path": "prompts/outbound-optin/mortgage-outbound-optin.md",
+    "industry": "mortgage",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Mortgage or refinance outbound (opt-in)"
+  },
+  {
+    "path": "prompts/outbound-optin/real-estate-outbound-optin.md",
+    "industry": "real-estate",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Real estate ISA (listing or ad opt-in)"
+  },
+  {
+    "path": "prompts/outbound-optin/roofing-outbound-optin.md",
+    "industry": "roofing",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Roofing outbound (inspection in the city)"
+  },
+  {
+    "path": "prompts/outbound-optin/solar-outbound-optin.md",
+    "industry": "solar",
+    "call_type": "outbound-optin",
+    "goal": "Converting: Solar outbound opt-in (form, ad, quote request)"
+  },
+  {
+    "path": "prompts/reactivation/04-outbound-medical-reactivation.md",
+    "industry": "medical",
+    "call_type": "reactivation",
+    "goal": "Field-Tested: Outbound Medical (reactivation / social follow-up)"
+  },
+  {
+    "path": "prompts/reactivation/06-outbound-dental-reactivation.md",
+    "industry": "dental",
+    "call_type": "reactivation",
+    "goal": "Field-Tested: Outbound Dental (database reactivation)"
+  },
+  {
+    "path": "prompts/voicemail-amd/generic-voicemail-and-amd.md",
+    "industry": "general",
+    "call_type": "voicemail-amd",
+    "goal": "Voicemail / Answering Machine Detection (generic, any industry)"
+  },
+  {
+    "path": "templates/01-speed-to-lead-live-transfer.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Opt In Lead - Live Transfer Only"
+  },
+  {
+    "path": "templates/02-speed-to-lead-booking.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Opt In Lead - Appointment Booking Only"
+  },
+  {
+    "path": "templates/03-speed-to-lead-both.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Booking + Live Transfer (Both)"
+  },
+  {
+    "path": "templates/04-no-show-recovery.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Appointment No-Show Recovery"
+  },
+  {
+    "path": "templates/05-360-nurture.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "360 Nurture"
+  },
+  {
+    "path": "templates/06-annual-reengagement.md",
+    "industry": "general",
+    "call_type": "reactivation",
+    "goal": "Annual Re-engagement"
+  },
+  {
+    "path": "templates/07-appointment-reminder-2hr.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "2 Hour Appointment Reminder"
+  },
+  {
+    "path": "templates/08-post-sale-welcome.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Post-Sale Welcome Call"
+  },
+  {
+    "path": "templates/09-appointment-no-show-v2.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Appointment No-Show (v2 - transfer-capable)"
+  },
+  {
+    "path": "templates/10-database-reactivation.md",
+    "industry": "general",
+    "call_type": "reactivation",
+    "goal": "Database Reactivation"
+  },
+  {
+    "path": "templates/11-webinar-invite.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Webinar / Event Invite"
+  },
+  {
+    "path": "templates/12-inbound-receptionist-booking.md",
+    "industry": "general",
+    "call_type": "inbound",
+    "goal": "Inbound Receptionist Booking"
+  },
+  {
+    "path": "templates/13-short-outbound-closer.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Short Outbound Closer"
+  },
+  {
+    "path": "templates/14-transfer-when-hot.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Transfer When Hot"
+  },
+  {
+    "path": "examples/marketing_strategist_kickoff.md",
+    "industry": "marketing-agency",
+    "call_type": "outbound-optin",
+    "goal": "Marketing Strategist Voice AI Agent Prompt"
+  },
+  {
+    "path": "examples/demo.md",
+    "industry": "general",
+    "call_type": "outbound-optin",
+    "goal": "Appointment follow-up"
+  }
+]

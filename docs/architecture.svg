@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
+<title id="title">Voice agent prompt authoring architecture</title><desc id="desc">Library and variables feed rendering. Generators also produce prompts. Lint reviews text before export.</desc>
+<rect width="960" height="300" fill="#f8fafc"/>
+<g stroke="#475569" stroke-width="2" fill="none"><path d="M220 75H310M220 215H310V100M510 75H590M510 215H560V100H590M760 75H800"/></g>
+<g fill="#e2e8f0" stroke="#64748b"><rect x="20" y="40" width="200" height="70" rx="10"/><rect x="20" y="180" width="200" height="70" rx="10"/><rect x="310" y="40" width="200" height="70" rx="10"/><rect x="310" y="180" width="200" height="70" rx="10"/><rect x="590" y="40" width="170" height="70" rx="10"/><rect x="800" y="40" width="140" height="70" rx="10"/></g>
+<g fill="#0f172a" font-family="sans-serif" font-size="18" text-anchor="middle"><text x="120" y="80">Library + catalog</text><text x="120" y="220">Variable values</text><text x="410" y="80">vap render</text><text x="410" y="210">Python / browser</text><text x="410" y="234">generators</text><text x="675" y="80">vap lint</text><text x="870" y="80">Export text</text><text x="730" y="218">Review before deployment</text><text x="730" y="245">No calling runtime included</text></g></svg>

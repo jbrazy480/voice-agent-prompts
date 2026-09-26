@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voice AI Prompt Maker | by James Hill, The AI Guy</title>
+<meta name="description" content="Free Voice AI Prompt Maker. Build a complete, 12 section voice AI sales prompt with real sales psychology baked in. By James Hill (The AI Guy)." />
+<meta name="author" content="James Hill" />
+<meta name="theme-color" content="#0A0A0A" />
+<meta property="og:title" content="Voice AI Prompt Maker | by James Hill, The AI Guy" />
+<meta property="og:description" content="Build a editable 12 section voice AI sales prompt with psychology baked in. Free, no signup." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#0A0A0A; --panel:rgb(17,17,20); --panel-2:rgb(21,21,26); --text:#FAFAFA; --muted:#A1A1AA;
+    --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.14);
+    --accent-1:#6366F1; --accent-2:#22D3EE; --radius:14px; --maxw:1240px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.55;
+    font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  header.hero{position:relative;padding:54px 0 26px;border-bottom:1px solid var(--border);overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:-40% 30% auto -10%;height:520px;
+    background:radial-gradient(closest-side,rgba(99,102,241,.22),transparent 70%);pointer-events:none}
+  header.hero::after{content:"";position:absolute;inset:-30% -10% auto 40%;height:480px;
+    background:radial-gradient(closest-side,rgba(34,211,238,.16),transparent 70%);pointer-events:none}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 14px;position:relative}
+  h1.title{font-size:clamp(2.2rem,6vw,4rem);line-height:1.03;letter-spacing:-.02em;font-weight:800;margin:0 0 16px;position:relative}
+  .grad{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  p.lede{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);max-width:760px;margin:0 0 22px;position:relative}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;position:relative}
+  .chip-stat{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--muted);
+    border:1px solid var(--border);border-radius:999px;padding:7px 14px;margin:18px 8px 0 0;position:relative}
+  .dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(90deg,var(--accent-1),var(--accent-2))}
+  .btn{appearance:none;cursor:pointer;font:inherit;font-weight:700;border-radius:11px;padding:12px 18px;
+    border:1px solid var(--border-strong);background:var(--panel-2);color:var(--text);
+    transition:transform .12s ease,border-color .12s ease}
+  .btn:hover{transform:translateY(-1px);border-color:var(--accent-1)}
+  .btn.primary{border:none;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#08080c}
+  .btn.small{padding:9px 13px;font-size:13px}
+  .btn:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+  main{padding:26px 0 8px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  @media(max-width:940px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+  .card h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 16px;font-weight:700}
+  .field{margin-bottom:15px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+  .field .hint{font-size:12px;color:var(--muted);margin-top:5px}
+  input[type=text],select,textarea{width:100%;font:inherit;color:var(--text);background:var(--panel-2);
+    border:1px solid var(--border);border-radius:10px;padding:11px 12px}
+  input[type=text]:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent-1)}
+  textarea{resize:vertical;min-height:60px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.row{grid-template-columns:1fr}}
+  .toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .toggle-row input{width:18px;height:18px;accent-color:var(--accent-1)}
+  .toggle-row label{font-size:14px;margin:0}
+  .preview-wrap{position:sticky;top:16px}
+  .preview-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .preview-actions{display:flex;gap:8px;flex-wrap:wrap}
+  pre.preview{margin:0;max-height:72vh;overflow:auto;background:var(--panel-2);border:1px solid var(--border);
+    border-radius:10px;padding:16px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px;line-height:1.6;color:#e6e6ea;white-space:pre-wrap;word-wrap:break-word}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#08080c;font-weight:700;
+    padding:11px 18px;border-radius:11px;opacity:0;transition:all .25s ease;pointer-events:none;z-index:50}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .psy{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+  .psy span{font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:5px 10px}
+  .cta{margin:30px 0 0;padding:26px;border:1px solid var(--border);border-radius:var(--radius);
+    background:radial-gradient(120% 120% at 0% 0%,rgba(99,102,241,.12),transparent 60%),var(--panel)}
+  .cta h3{margin:0 0 8px;font-size:1.3rem}.cta p{margin:0 0 16px;color:var(--muted)}
+  footer{margin-top:40px;border-top:1px solid var(--border);padding:26px 0 50px;color:var(--muted);font-size:14px}
+  footer .links{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px}
+  .who{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Free voice AI prompt maker, runs in your browser</p>
+    <h1 class="title">Voice AI <span class="grad">Prompt Maker</span></h1>
+    <p class="lede">Build a complete, editable voice AI sales prompt in the canonical 12 section structure, with real sales psychology baked in by name. This is the prompt engineering method behind RizzDial, a commercial AI calling platform.</p>
+    <div class="hero-cta">
+      <button class="btn primary" onclick="document.getElementById('builder').scrollIntoView()">Start building</button>
+      <a class="btn" href="https://rizzdial.com" target="_blank" rel="noopener">See RizzDial</a>
+    </div>
+    <div>
+      <span class="chip-stat"><span class="dot"></span> 12 section structure</span>
+      <span class="chip-stat"><span class="dot"></span> Psychology baked in</span>
+      <span class="chip-stat"><span class="dot"></span> By James Hill, The AI Guy</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="builder">
+  <div class="toolbar">
+    <button class="btn small" onclick="surprise()">Surprise me</button>
+    <button class="btn small" onclick="resetForm()">Reset</button>
+  </div>
+
+  <div class="grid">
+    <section class="card" aria-label="Prompt builder">
+      <h2>Build your closer</h2>
+
+      <div class="field">
+        <label for="vertical">Vertical (loads industry discovery questions)</label>
+        <select id="vertical"></select>
+      </div>
+
+      <div class="row">
+        <div class="field"><label for="company">Company name</label><input type="text" id="company" /></div>
+        <div class="field"><label for="agent">Agent name</label><input type="text" id="agent" /></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label for="industry">Industry</label><input type="text" id="industry" /></div>
+        <div class="field"><label for="transfer">Transfer target</label><input type="text" id="transfer" /></div>
+      </div>
+
+      <div class="field"><label for="offer">Offer (the reason to act now)</label><input type="text" id="offer" /></div>
+      <div class="field"><label for="objective">Primary objective</label><input type="text" id="objective" /></div>
+
+      <div class="field">
+        <label>Compliance</label>
+        <div class="toggle-row"><input type="checkbox" id="hipaa" /><label for="hipaa">HIPAA (healthcare privacy guardrails)</label></div>
+      </div>
+
+      <div class="field">
+        <label>Psychology engine baked into every prompt</label>
+        <div class="psy">
+          <span>Time Contract</span><span>Permission Close</span><span>SPIN</span><span>Loss Aversion</span>
+          <span>Voss Labeling</span><span>Takeaway</span><span>Assumptive Bridge</span><span>Silence Bomb</span>
+          <span>Emotional Matching</span><span>One question at a time</span>
+        </div>
+        <div class="hint">Hooks are injected at the right moments in the Script section, named so you can see the why.</div>
+      </div>
+    </section>
+
+    <section class="card preview-wrap" aria-label="Live prompt preview">
+      <div class="preview-head">
+        <h2 style="margin:0">Live preview (12 section RizzDial format)</h2>
+        <div class="preview-actions">
+          <button class="btn small primary" onclick="copyPrompt()">Copy</button>
+          <button class="btn small" onclick="downloadPrompt('md')">Download .md</button>
+          <button class="btn small" onclick="downloadPrompt('txt')">Download .txt</button>
+        </div>
+      </div>
+      <pre class="preview" id="preview" aria-live="polite"></pre>
+    </section>
+  </div>
+
+  <div class="cta">
+    <h3>These prompts are free. RizzDial runs them at scale.</h3>
+    <p>RizzDial is James Hill's commercial AI calling platform for agencies and GoHighLevel users, with predictive, power, and parallel dialing, answering machine detection, and a built in CRM. Want this kind of calling, qualifying, and booking for your business?</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="https://aiguyofficial.com" target="_blank" rel="noopener">Work with The AI Guy</a>
+      <a class="btn" href="https://rizzdial.com" target="_blank" rel="noopener">See RizzDial in action</a>
+    </div>
+  </div>
+</main>
+
+<footer class="wrap">
+  <div class="links">
+    <a href="https://aiguyofficial.com" target="_blank" rel="noopener">aiguyofficial.com</a>
+    <a href="https://rizzdial.com" target="_blank" rel="noopener">rizzdial.com</a>
+    <a href="https://www.youtube.com/@thejameshill" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/aiguyofficial/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/james-hill-927460261/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.skool.com/evolving-ai-hub" target="_blank" rel="noopener">Community</a>
+  </div>
+  <p class="who">From the voice-agent-prompts library by James Hill, known as "The AI Guy," founder of RizzDial. MIT licensed.</p>
+</footer>
+
+<div class="toast" id="toast">Copied</div>
+
+<script>
+"use strict";
+var SITE="https://aiguyofficial.com", PLATFORM="https://rizzdial.com", A="→";
+
+var VERTICALS={
+  medspa:{industry:"medical spa",company:"Glow Aesthetics Medspa",agent:"Mia",offer:"a free consultation",
+    target:"people who want to look and feel confident",outcome:"real, natural looking results from expert injectors",
+    differentiator:"a medical team that actually listens",transfer:"a patient coordinator",
+    discovery:["Have you had a treatment like this before, or would this be your first?","What are you hoping to improve most?","Any big event or date you are working toward?","What has held you back from booking before now?"],
+    loss_math:"What would you like to understand before deciding whether to book?",
+    faq:[["How much does it cost?","Great question. It depends on what you actually need, which is exactly what the free consult is for."],["Does it hurt?","The provider can explain the procedure and discuss your concerns."],["Is this a real person?","I am the AI assistant for the medspa, here to get you booked with the team."]],hipaa:false},
+  hvac:{industry:"HVAC and home services",company:"Summit Heating and Air",agent:"Sam",offer:"a free estimate",
+    target:"homeowners who want a system that just works",outcome:"comfort without the surprise breakdowns",
+    differentiator:"upfront pricing and techs who show up on time",transfer:"the on call dispatcher",
+    discovery:["Is this for a repair, or a system that is just getting old?","How long has it been acting up?","Any idea the last time it was serviced?","Is it the whole house, or just one room that is off?"],
+    loss_math:"The technician can assess the system and explain repair options.",
+    faq:[["How much will it cost?","The tech gives you an exact quote on site after a quick look, and the visit itself is a good first step."],["How soon can you come?","Let me check current availability with the team."],["Is this a real person?","I am the AI assistant for the company, here to get a technician scheduled for you."]],hipaa:false},
+  healthcare:{industry:"healthcare clinic",company:"Lakeside Family Clinic",agent:"Avery",offer:"an appointment",
+    target:"patients who want to be seen and heard",outcome:"care from a provider who takes the time",
+    differentiator:"short wait times and a caring team",transfer:"the front desk team",
+    discovery:["Is this a new concern, or something you have been managing for a while?","Are you currently seeing anyone for it?","How soon are you hoping to be seen?","Is this covered by insurance, or self pay?"],
+    loss_math:"The clinical team can help you decide the appropriate next step.",
+    faq:[["What will it cost?","Our billing team handles coverage details. I can have them follow up, or get the visit booked first."],["Can you give me advice on my symptoms?","I am not able to give medical guidance, the provider covers all of that at the visit."],["Is this a real person?","I am the clinic AI assistant, here to help you get scheduled."]],hipaa:true},
+  insurance:{industry:"insurance",company:"Guardian Insurance Partners",agent:"Casey",offer:"a free coverage review",
+    target:"people who want the right coverage without overpaying",outcome:"the right protection at a fair price",
+    differentiator:"an advisor who shops it for you",transfer:"a licensed insurance advisor",
+    discovery:["Do you have coverage right now, or shopping fresh?","When does your current policy renew?","What made you start looking?","Anything your current policy is missing?"],
+    loss_math:"An advisor can explain coverage options and any gaps in your current policy.",
+    faq:[["What is the rate?","The advisor gives you real quotes on the review. I cannot quote a binding rate, that would not be honest."],["How long does the review take?","About fifteen minutes, and you walk away knowing exactly where you stand."],["Is this a real person?","I am the AI assistant for the agency, here to book your review."]],hipaa:false},
+  solar:{industry:"solar",company:"BrightPath Solar",agent:"Riley",offer:"a free savings estimate",
+    target:"homeowners tired of rising power bills",outcome:"predictable energy costs and long term savings",
+    differentiator:"honest estimates with no high pressure",transfer:"a solar advisor",
+    discovery:["Do you own the home, or rent?"],
+    loss_math:"The advisor can explain costs and eligibility using verified information.",
+    faq:[["How much will I save?","The advisor runs your real numbers on the estimate. I will not promise a figure I cannot back up."],["Do I qualify?","If you own the home, you are likely a fit. The estimate confirms it."],["Is this a real person?","I am the AI assistant for the company, here to set up your estimate."]],hipaa:false},
+  "real-estate":{industry:"real estate",company:"Coastline Realty Group",agent:"Jordan",offer:"a quick call with an agent",
+    target:"buyers and sellers who want a pro in their corner",outcome:"the right move at the right time",
+    differentiator:"agents who know the local market cold",transfer:"a licensed agent",
+    discovery:["Are you looking to buy, sell, or both?","What area are you focused on?","What is your timeline to make a move?","Have you been pre approved yet, or still early?"],
+    loss_math:"The agent can discuss current listings and your timeline.",
+    faq:[["What are your fees?","The agent covers all of that on the call, and there is no cost to talk."],["Are you an agent?","I am the AI assistant for the group, here to connect you with a licensed agent."],["Is this a real person?","I am the team AI assistant, here to set up your call."]],hipaa:false},
+  "b2b-saas":{industry:"B2B software",company:"your platform",agent:"Sam",offer:"a short demo",
+    target:"teams stuck with tools that fight them",outcome:"hours back every week and cleaner data",
+    differentiator:"it actually fits how your team already works",transfer:"an account executive",
+    discovery:["What are you using for this right now?","Where does the current setup fall short?","How many people on the team would touch this?","What would solving this unlock for you?"],
+    loss_math:"Every week on the old setup is hours your team will not get back, and the switch is easier than living with it.",
+    faq:[["What does it cost?","Pricing depends on your team size, which the demo scopes. I will not throw out a number that does not fit you."],["How long is the demo?","About twenty minutes, tailored to your stack, not a generic walkthrough."],["Is this a real person?","I am the company AI assistant, here to book your demo."]],hipaa:false},
+  "marketing-agency":{industry:"marketing agency",company:"your agency",agent:"Casey",offer:"a strategy call",
+    target:"business owners who want more booked calls",outcome:"a pipeline that fills itself",
+    differentiator:"done for you systems, not just advice",transfer:"a strategist",
+    discovery:["What is your biggest bottleneck right now, leads or fulfillment?","What are you spending on ads a month, ballpark?","How are you handling follow up today?","If you doubled booked calls, could you handle the volume?"],
+    loss_math:"Leads you are not following up with fast are revenue walking out the door, and speed to lead is the cheapest win there is.",
+    faq:[["How much do you charge?","It depends on scope, which is exactly what the strategy call is for."],["Do you guarantee results?","The strategist gives you honest expectations on the call. I will not promise numbers I cannot back."],["Is this a real person?","I am the agency AI assistant, here to book your strategy call."]],hipaa:false}
+};
+
+function v(id){var e=document.getElementById(id);return e?e.value.trim():"";}
+function sv(id,val){var e=document.getElementById(id);if(e)e.value=val||"";}
+
+function readState(){
+  var key=v("vertical"); var base=VERTICALS[key]||VERTICALS.medspa;
+  return {
+    key:key, industry:v("industry")||base.industry, company:v("company")||base.company,
+    agent:v("agent")||base.agent, offer:v("offer")||base.offer,
+    objective:v("objective")||("book "+(v("offer")||base.offer)),
+    transfer:v("transfer")||base.transfer, hipaa:document.getElementById("hipaa").checked,
+    discovery:base.discovery, loss_math:base.loss_math, faq:base.faq,
+    target:base.target, outcome:base.outcome, differentiator:base.differentiator
+  };
+}
+
+function assemble(s){
+  var company=s.company, agent=s.agent, objective=s.objective||("book "+s.offer);
+  var d=s.discovery;
+  var crit=[
+    "HANG UP immediately if the first audio is voicemail, an answering machine, or an IVR menu. Do not talk into the mailbox. Do not leave a message.",
+    "Hang-up phrases: your call has been forwarded, leave a message after the beep, the person you are trying to reach, you've reached the voicemail, press 1.",
+    "Talking into voicemail is not a successful call. Real success is a booked appointment or a live transfer.",
+    "iPhone screening (name and reason only, then silence): state your name, wait 30 seconds. If it becomes a mailbox, hang up.",
+    "NEVER invent prices or make promises outside the script. If you do not know, say a specialist will follow up.",
+    "ONE question at a time. Ask, then stop and wait for the answer. Never stack questions.",
+    "Never interrogate before a micro-yes. If they are hot and a closer is available, transfer. Do not over-qualify.",
+    "MATCH the caller energy (Emotional Intelligence). If they are rushed, get to the point. If chatty, warm up first.",
+    "ALWAYS confirm the appointment time twice before ending.",
+    "Speak numbers and times the way a person says them, for example two thirty in the afternoon.",
+    "Honor any do not call or stop request immediately: record DNC status, stop persuasion, suppress future calls through the calling system, and end politely.",
+    "At the start of the call, say plainly that you are an AI assistant. Never claim to be a human."
+  ];
+  if(s.hipaa) crit.push("NEVER give medical advice. Collect only what is needed to schedule. If it sounds like an emergency, tell them to call local emergency services or go to the nearest ER, then end.");
+
+  var sc=[];
+  sc.push('~"Hi, is this {{contact.first_name}}?"');
+  sc.push("  [WAIT. Handle the iPhone screening pause: if silence, re-greet warmly once.]");
+  sc.push('~"Hey {{contact.first_name}}, this is '+agent+' at '+company+'. You reached out about '+s.offer+', perfect timing. Do you have seventeen seconds?"');
+  sc.push("  [Time Contract: the odd number feels precise and honest, not salesy.]");
+  sc.push("IF yes "+A);
+  sc.push('  ~"Awesome. Mind if I ask you one quick thing?"');
+  sc.push("  [Permission Close: a small yes that lowers resistance to the next.]");
+  sc.push('  ~"'+d[0]+'"'); sc.push("  [SPIN Situation. WAIT. Mirror their words back before the next question.]");
+  if(d[1]){sc.push('  ~"'+d[1]+'"');sc.push("  [SPIN Problem. WAIT.]");}
+  if(d[2]){sc.push('  ~"'+d[2]+'"');sc.push("  [SPIN Implication. WAIT.]");}
+  if(d[3]){sc.push('  ~"'+d[3]+'"');sc.push("  [SPIN Need-payoff. WAIT.]");}
+  sc.push('~"It sounds like this has been weighing on you for a bit."');
+  sc.push("  [Chris Voss Labeling: name the emotion to defuse it and build trust.]");
+  sc.push('~"'+s.loss_math+'"'); sc.push("  [Loss Aversion: make the cost of doing nothing concrete.]");
+  sc.push('~"Here is what I would suggest, based on what you just told me..."'); sc.push("  [Pitch tied directly to their answers, never generic.]");
+  sc.push('~"Honestly, this might not even be a fit for you, and that is okay."'); sc.push("  [Takeaway: removing the offer triggers desire.]");
+  sc.push('~"Tell you what, let us grab a quick time. {{slot_one}} or {{slot_two}}?"'); sc.push("  [Assumptive Bridge: replace the yes/no with an easy either/or.]");
+  sc.push('~"Before I lock it in, anything I did not cover that is on your mind?"'); sc.push("  [Silence Bomb: ask, then say NOTHING. Let the silence do the work.]");
+  sc.push(A+" {{ghl_calendar_availability_}}"); sc.push(A+" {{book_appointment_GHL_}}");
+  sc.push('~"Perfect, you are all set for {{appointment_time}}. That is {{appointment_time}}, correct?"'); sc.push("  [Confirm twice. Then a warm close.]");
+  sc.push('~"You will get a text confirmation. Talk soon, {{contact.first_name}}."');
+
+  var offerNoun=s.offer.replace(/^a /,"").replace(/^an /,"");
+  var obj=[
+    ['"I am not interested"','~"Totally fair, most folks say that before they hear how fast this actually works. Can I take seventeen seconds?"'],
+    ['"How did you get my info?"','~"You reached out about '+s.offer+' just now, that is the only reason I am calling."'],
+    ['"I am busy right now"','~"I hear you, seventeen seconds and I will let you go. Fair?"  [Time Contract again]'],
+    ['"Just send me an email or text"','~"Happy to send something over. While I have you, one quick question so I send the right thing..."'],
+    ['"How much is it?"','~"Great question, and an honest answer is it depends on your situation, which is exactly what the '+offerNoun+' is for."']
+  ];
+
+  var P=[];
+  P.push("# Voice AI Prompt: "+company+" ("+s.industry+")");
+  P.push("");
+  P.push("Built on the canonical 12 section prompt structure with the sales psychology engine baked in.");
+  P.push("This is the prompt engineering method behind RizzDial, a commercial AI calling platform for agencies and GoHighLevel users.");
+  P.push("Free resources and templates at "+SITE+". RizzDial is a commercial platform at "+PLATFORM+".");
+  P.push("");
+  P.push('Notation: ~"..." is spoken out loud, '+A+' is a system action, {{...}} is a CRM variable.');
+  P.push(""); P.push("---"); P.push("");
+  P.push("## 1. Project Instructions"); P.push("```");
+  P.push("You are "+agent+", the voice AI assistant for "+company+".");
+  P.push("Your job is to "+objective+".");
+  P.push("You are speaking with {{contact.first_name}}.");
+  P.push("Use conversational techniques on purpose, but never sound like a script.");
+  P.push("```"); P.push("");
+  P.push("## 2. Greetings"); P.push("```");
+  P.push('~"Hi, is this {{contact.first_name}}?"');
+  P.push("  [Handle the iPhone screening pause. If silence, WAIT 2 seconds, then a warm re-greet.]");
+  P.push('~"Hello? Can you hear me okay? It is just '+agent+' from '+company+'."');
+  P.push('~"Quick disclosure: I am an AI assistant, not a person. I can still get you taken care of."');
+  P.push("  [AI disclosure: state it plainly, once, early. Never deny being AI if asked again.]");
+  P.push("```"); P.push("");
+  P.push("## 3. Call Flow"); P.push("```");
+  ["1. Confirm identity (handle screening pause)","2. Time Contract opener (seventeen seconds)","3. Permission to continue (micro-yes)","4. SPIN discovery (one question at a time)","5. Label the emotion, then Loss Aversion math","6. Pitch tied to their answers","7. Takeaway, then Assumptive Bridge to booking","8. Silence Bomb, then book and confirm twice","9. Warm close"].forEach(function(l){P.push(l);});
+  P.push("```"); P.push("");
+  P.push("## 4. Character"); P.push("```");
+  P.push("Warm, confident, sharp. Speaks in short sentences. One question at a time.");
+  P.push("Matches the caller energy and pace. Sounds like a skilled closer, who");
+  P.push("happens to respect your time. Never robotic, never pushy, never reads like a script.");
+  P.push("```"); P.push("");
+  P.push("## 5. Transfer Call"); P.push("```");
+  P.push("IF the caller is hot and "+s.transfer+" is available "+A);
+  P.push('  ~"Honestly, you should talk to '+s.transfer+' right now, let me connect you."');
+  P.push("  "+A+" {{transfer_call_}}");
+  P.push("```"); P.push("");
+  P.push("## 6. Critical Instructions"); P.push("```");
+  crit.forEach(function(l){P.push(l);});
+  P.push("```"); P.push("");
+  P.push("## 7. Custom Field References"); P.push("```");
+  P.push("{{contact.first_name}}, {{contact.last_name}}, {{contact.email}}, {{contact.phone}}");
+  P.push("{{appointment_time}}, {{slot_one}}, {{slot_two}}, {{location.calendar_name}}");
+  P.push("```"); P.push("");
+  P.push("## 8. What Your Company Does"); P.push("```");
+  P.push(company+" helps "+s.target+" get "+s.outcome+".");
+  P.push("Known for "+s.differentiator+".");
+  P.push("```"); P.push("");
+  P.push("## 9. Script"); P.push("```");
+  sc.forEach(function(l){P.push(l);});
+  P.push("```"); P.push("");
+  P.push("## 10. Objection Handling"); P.push("```");
+  obj.forEach(function(o){P.push(o[0]+" "+A);P.push("  "+o[1]);});
+  P.push("```"); P.push("");
+  P.push("## 11. Booking/Calendar"); P.push("```");
+  P.push(A+" {{ghl_calendar_availability_}}");
+  P.push('  ~"I have {{slot_one}}, or {{slot_two}}. Which works better?"');
+  P.push(A+" {{book_appointment_GHL_}}");
+  P.push('  ~"You are booked for {{appointment_time}}. Confirm: that is correct, yes?"');
+  P.push("  [Always confirm twice. Never double book. Swap the function names for your calendar stack.]");
+  P.push("```"); P.push("");
+  P.push("## 12. FAQ"); P.push("```");
+  s.faq.forEach(function(f){P.push("Q: "+f[0]);P.push('A: ~"'+f[1]+'"');});
+  P.push("```"); P.push(""); P.push("---");
+  P.push("From the voice-agent-prompts library by James Hill (The AI Guy), MIT licensed. "+SITE+" | "+PLATFORM);
+  P.push("");
+  return P.join("\n");
+}
+
+function render(){document.getElementById("preview").textContent=assemble(readState());}
+
+function applyVertical(key){
+  var p=VERTICALS[key]||VERTICALS.medspa;
+  sv("company",p.company);sv("agent",p.agent);sv("industry",p.industry);
+  sv("offer",p.offer);sv("objective","book "+p.offer);sv("transfer",p.transfer);
+  document.getElementById("hipaa").checked=!!p.hipaa;
+  render();
+}
+
+function surprise(){
+  var keys=Object.keys(VERTICALS);
+  var idx=(new Date().getTime())%keys.length;
+  document.getElementById("vertical").value=keys[idx];
+  applyVertical(keys[idx]); toast("Loaded "+keys[idx]);
+}
+function resetForm(){document.getElementById("vertical").value="medspa";applyVertical("medspa");toast("Reset");}
+
+function copyPrompt(){
+  var t=document.getElementById("preview").textContent;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast("Copied to clipboard");},fb);}else{fb();}
+  function fb(){var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Copied to clipboard");}catch(e){toast("Select and copy manually");}document.body.removeChild(ta);}
+}
+function downloadPrompt(kind){
+  var t=document.getElementById("preview").textContent;var s=readState();
+  var safe=s.company.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"rizzdial-prompt";
+  var name=safe+"-rizzdial-prompt."+(kind==="txt"?"txt":"md");
+  var blob=new Blob([t],{type:"text/plain;charset=utf-8"});var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},100);toast("Downloaded "+name);
+}
+var toastTimer=null;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");if(toastTimer)clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove("show");},1800);}
+
+// init
+(function(){
+  var sel=document.getElementById("vertical");
+  var labels={medspa:"Medspa / Aesthetics",hvac:"HVAC / Home Services",healthcare:"Healthcare Clinic",insurance:"Insurance",solar:"Solar","real-estate":"Real Estate","b2b-saas":"B2B SaaS","marketing-agency":"Marketing Agency"};
+  Object.keys(VERTICALS).forEach(function(k){var o=document.createElement("option");o.value=k;o.textContent=labels[k]||k;sel.appendChild(o);});
+  sel.addEventListener("change",function(){applyVertical(sel.value);});
+  document.addEventListener("input",function(e){if(e.target&&e.target.closest&&e.target.closest("#builder"))render();});
+  applyVertical("medspa");
+})();
+</script>
+</body>
+</html>

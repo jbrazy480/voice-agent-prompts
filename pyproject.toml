@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-agent-prompts"
+version = "0.1.0"
+description = "A prompt library and linter for AI calling agents"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "James Hill"}]
+dependencies = []
+
+[project.scripts]
+vap = "voice_agent_prompts.cli:main"
+
+[tool.setuptools]
+packages = ["voice_agent_prompts"]
+py-modules = ["generate"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+voice_agent_prompts = ["data/catalog.json", "data/**/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
