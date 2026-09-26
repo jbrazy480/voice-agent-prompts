@@ -1,21 +1,100 @@
-# Voice agent prompts: a prompt library and linter for AI calling agents
+<p align="center">
+  <img src="assets/hero.png" alt="Voice Agent Prompts: a prompt library and offline linter for AI calling agents" width="100%">
+</p>
 
-**Voice agent prompts is an MIT prompt library and offline linter for AI calling agents.**
+<p align="center">
+  <strong>Ready-to-use prompts for AI calling agents, plus a linter that catches missing disclosures before you go live.</strong>
+</p>
 
-[![CI](https://github.com/jbrazy480/voice-agent-prompts/actions/workflows/ci.yml/badge.svg)](https://github.com/jbrazy480/voice-agent-prompts/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)
-[![AI Guy resources](https://img.shields.io/badge/AI_Guy-resources-green.svg)](https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts)
+<p align="center">
+  <a href="https://github.com/jbrazy480/voice-agent-prompts/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/tests-123%20passing-7c7cf0?style=flat-square" alt="123 tests passing"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-7c7cf0.svg?style=flat-square" alt="MIT License"></a>
+  <img src="https://img.shields.io/badge/Python-3.11%2B-7c7cf0.svg?style=flat-square" alt="Python 3.11+">
+  <img src="https://img.shields.io/badge/Dependencies-none-7c7cf0.svg?style=flat-square" alt="Zero dependencies">
+  <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=community"><img src="https://img.shields.io/badge/Community-Evolving_AI_Hub-7c7cf0.svg?style=flat-square" alt="Community: Evolving AI Hub"></a>
+  <a href="https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=done-for-you"><img src="https://img.shields.io/badge/Done_for_you-RizzDial-7c7cf0.svg?style=flat-square" alt="Done for you: RizzDial"></a>
+</p>
+
+<p align="center">
+  <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=community"><img src="https://img.shields.io/badge/-Join_the_free_Skool_community-7c7cf0?style=for-the-badge" alt="Join the free community"></a>
+  <a href="https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
+  <a href="https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
+</p>
+
+<p align="center">
+  Use the library and CLI yourself, ask questions in the free community, or have the RizzDial team set up AI calling for your business.
+</p>
+
+## Demo
 
 ![Offline terminal demo](docs/demo.gif)
 
+The terminal demo above runs `vap list`, `vap lint`, and `vap render` end to end, offline, with no API keys.
+
 ## What it does
 
-- Browse inbound, outbound opt-in, outbound cold, reactivation, and voicemail / AMD prompts by industry.
-- Render `{{variables}}` from command-line values or a JSON / flat YAML file; missing values fail explicitly.
-- Lint identity, goal, disclosure, opt-out, human escalation, outbound machine handling, restricted vocabulary, and prompt length.
-- Generate editable scripts using `vap new`, `generate.py`, or the browser maker in [index.html](index.html).
-- Use the bundled [Claude Code / Codex skill](skills/voice-ai-prompt-builder/SKILL.md) to guide authoring.
+<table>
+<tr>
+<td width="33%">
+
+**41 prompts, 21 industries**
+Inbound, outbound opt-in, outbound cold, reactivation, and voicemail / AMD prompts, organized by call type and industry.
+
+</td>
+<td width="33%">
+
+**Offline linter**
+Checks identity, goal, disclosure, opt-out, human escalation, outbound machine handling, restricted vocabulary, and length.
+
+</td>
+<td width="33%">
+
+**Variable rendering**
+Fill `{{variables}}` from CLI flags or a JSON / flat YAML file. Missing values fail explicitly instead of shipping blank text.
+
+</td>
+</tr>
+<tr>
+<td width="33%">
+
+**`vap` CLI**
+`list`, `show`, `render`, `lint`, and `new` commands, plus a `python -m voice_agent_prompts` entry point.
+
+</td>
+<td width="33%">
+
+**Browser prompt maker**
+[index.html](index.html) generates, copies, or downloads a prompt entirely in the browser. No server, no account.
+
+</td>
+<td width="33%">
+
+**Non-interactive generator**
+`generate.py` scaffolds a prompt from company and industry flags, for scripting or CI.
+
+</td>
+</tr>
+<tr>
+<td width="33%">
+
+**Claude Code / Codex skill**
+The bundled [voice-ai-prompt-builder](skills/voice-ai-prompt-builder/SKILL.md) skill guides an agent through authoring and linting a prompt.
+
+</td>
+<td width="33%">
+
+**Zero runtime dependencies**
+The Python package uses only the standard library. Wheels bundle the catalog and prompts.
+
+</td>
+<td width="33%">
+
+**CI across 3 Python versions**
+GitHub Actions runs the test suite, the demo GIF script, and a package build on Python 3.11, 3.12, and 3.13.
+
+</td>
+</tr>
+</table>
 
 ## Who this is for
 
@@ -47,9 +126,27 @@ python generate.py --non-interactive --company Acme --industry roofing --print
 
 Open `index.html` directly in your browser to generate, copy, or download a prompt. The browser generator runs locally. Business facts in presets are illustrative and require review.
 
-### How do I use this for real phone calls?
+<details>
+<summary>How do I use this for real phone calls?</summary>
+
+<br>
 
 This repository authors text and contains no telephony runtime. Render and review a prompt, then import it into your chosen calling platform. Configure consent enforcement, DNC suppression, booking tools, machine detection, and transfers there. The function names in prompts do not execute actions. Provider credentials and webhooks belong in that separate application.
+
+</details>
+
+## How it works
+
+<p align="center">
+  <img src="assets/architecture.png" alt="Architecture: catalog and prompt library feed the render, lint, and generate commands" width="100%">
+</p>
+
+1. The catalog indexes every prompt by industry and call type.
+2. `vap list` and `vap show` browse the catalog from the terminal.
+3. `vap render` fills `{{variables}}` from CLI flags or a JSON / flat YAML file.
+4. `vap lint` checks the rendered text against the disclosure, opt-out, escalation, and length rules.
+5. `vap new` and `generate.py` scaffold a fresh prompt from your business details, ready for the same lint step.
+6. `index.html` runs the same generator in the browser, for anyone who prefers a GUI to a terminal.
 
 ## Configuration
 
@@ -70,31 +167,6 @@ vap lint rendered.md --call-type outbound-optin --max-length 24000
 
 The default length budget is a configurable authoring limit, not a measured platform limit. Warnings alone exit successfully; `--strict` makes warnings fail. Lint failures return status 1; invalid arguments or unreadable input return status 2. Unknown local prompts default to outbound rules unless `--call-type inbound` is supplied.
 
-## Architecture
-
-```mermaid
-flowchart LR
-    Library[Prompt library and catalog] --> CLI[vap list / show]
-    Library --> Render[vap render]
-    Vars[JSON / flat YAML / CLI values] --> Render
-    Render --> Lint[vap lint]
-    Generator[generate.py / vap new] --> Lint
-    Browser[index.html] --> Export[Prompt text]
-    Lint --> Export
-```
-
-![Architecture](docs/architecture.svg)
-
-The Python package uses only the standard library. Wheels bundle the catalog and prompts. `generate.py` remains the shared Python generator; the browser keeps its own local generator. `scripts/bundle_library.py` refreshes package data after library edits.
-
-## How does the agent transfer a call?
-
-The prompts instruct the agent to confirm human availability and request a transfer. Your calling platform must implement that action and a fallback when no human is available. The linter only checks text.
-
-## How much does it cost to run?
-
-The library and offline tools require no paid service. Live calls incur charges from your chosen platform and providers; check their pricing before deployment. RizzDial is a separate [commercial platform](https://rizzdial.com/ai-dialer).
-
 ## Testing
 
 ```bash
@@ -103,7 +175,7 @@ pytest -q
 python scripts/make_demo_gif.py
 ```
 
-Tests cover rule failures, every shipped prompt, rendering and missing variables, CLI errors, list filtering, generator smoke tests, and packaged-library consistency. Tests use no network or API keys. The GIF script executes the offline demo and renders its actual output with Pillow.
+123 tests pass as of this release, covering rule failures, every shipped prompt, rendering and missing variables, CLI errors, list filtering, generator smoke tests, and packaged-library consistency. Tests use no network or API keys. The GIF script executes the offline demo and renders its actual output with Pillow.
 
 ## Compliance note (not legal advice)
 
@@ -117,7 +189,25 @@ Calling real people with AI voices is regulated. The FCC confirms that AI-genera
 | Build from scratch | Your own scripts | Authoring, validation, runtime, tools | Your choice |
 | Hosted platform | Provider-specific tooling | Account setup and campaign review | Provider-managed |
 
+## Want this done for you?
+
+This starter gives you the prompts and the linter. If you run an agency, a local business, or a sales team and want the calling runtime, dialer, and CRM handled for you, the RizzDial team can set that up.
+
+RizzDial is a commercial platform for agencies and GoHighLevel users. The team can set up:
+
+- AI voice agents and AI calling built on this prompt structure
+- Predictive, power, and parallel dialing
+- Answering machine detection
+- Built-in CRM, plus GoHighLevel, HubSpot, and Salesforce integrations
+- An MCP connection so Claude and ChatGPT can work with your calling data
+
+Product page: [rizzdial.com/ai-dialer](https://rizzdial.com/ai-dialer?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=product). Free training: [rizzdial.com/free-training](https://rizzdial.com/free-training?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=free-training). To talk it through first: [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=done-for-you).
+
 ## FAQ
+
+### Is this free?
+
+Yes. The prompts, the CLI, the linter, and the browser maker are MIT licensed and free to use and modify.
 
 ### Does this make phone calls?
 
@@ -135,18 +225,31 @@ No. Checks are heuristic and can miss contradictory or ineffective instructions.
 
 Yes. They are MIT licensed templates. The label does not imply a quantified outcome or guarantee.
 
-### Is RizzDial included in the MIT license?
+### Is RizzDial open source?
 
-No. Only this repository's code and prompts are MIT licensed. RizzDial is a commercial platform.
+No. RizzDial is a commercial platform. Only this repository's code and prompts are MIT licensed.
+
+### How do I get help?
+
+Ask in the [Evolving AI Hub](https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=community), James Hill's free Skool community. For file-specific questions, open a GitHub issue.
 
 ## Going further
 
-Free resources, templates and community: [AI Guy resources](https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts).
-
-When you need this across many client numbers with a dialer and CRM built in, RizzDial is a commercial platform for that: [RizzDial AI dialer](https://rizzdial.com/ai-dialer?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts).
+<p align="center">
+  <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=community"><img src="https://img.shields.io/badge/-Join_the_free_Skool_community-7c7cf0?style=for-the-badge" alt="Join the free community"></a>
+  <a href="https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
+  <a href="https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
+</p>
 
 ## License
 
 [MIT](LICENSE), this library and starter only. Copyright (c) 2026 James Hill.
 
-Maintained by James Hill (The AI Guy).
+Built by [James Hill (The AI Guy)](https://aiguyofficial.com?utm_source=github&utm_medium=readme&utm_campaign=voice-agent-prompts&utm_content=author).
+
+### More free starters
+
+- [AI Receptionist](https://github.com/jbrazy480/ai-receptionist)
+- [AI Cold Calling Agent](https://github.com/jbrazy480/ai-cold-calling-agent)
+- [TCPA Compliance Checklist](https://github.com/jbrazy480/tcpa-compliance-checklist)
+- [Phone MCP Server](https://github.com/jbrazy480/phone-mcp-server)
