@@ -1,0 +1,18 @@
+# First-run audit
+
+A walkthrough of `README.md`, step by step, on a fresh clone (`/tmp/fresh-voice-agent-prompts`), acting as a first-time, non-developer user. No real API keys or phone calls were used (this repository needs none). This is a checklist of what was found and what was fixed.
+
+- [x] **`pytest -q` failed on a genuinely fresh clone.** `test_repository_content_rules` raised `AssertionError` on `README.md`, matching the numeric width value on the hero image's HTML width attribute as if it were a results claim. A first-time user following the README's own Testing section literally would see a failing test on the very first run. Fixed by stripping HTML tags from the markdown prose before checking for percentage or performance-figure claims (`tests/test_vap.py`).
+- [x] **The same test was silently doing nothing in this exact working copy.** The test's `ignored` folder check compared against `path.parts` on the absolute path, so any ancestor directory literally named `build` or `dist` (this repository sits at `.../github/build/voice-agent-prompts`) matched the ignore list and caused every single file to be skipped. The em/en dash check, the banned-word check, and the no-stats-claims check were never actually running here, even though the test reported "passed." Fixed by checking the path relative to the repository root instead of the absolute path. Re-running after the fix: 129 passed, with the checks genuinely executing this time.
+- [x] Quickstart commands (`vap list`, `vap lint`, `vap render`, `vap show`, `vap new`, `generate.py --non-interactive`, `--vars` JSON and YAML rendering) all worked on the first try, offline, with no keys.
+- [x] `pip install -e . -r requirements-dev.txt`, `pytest -q`, and `python scripts/make_demo_gif.py` all worked on the first try once the test bug above was fixed.
+- [x] No ready-made, fill-in-the-blanks example config existed for common niches; a first-time user had to read the full prompt library and hand-pick variables themselves. Added `examples/niches/` (med spa, home services, marketing agency, real estate, insurance) plus `examples/README.md`.
+- [x] There was no single "how do I know I'm done" checklist with time estimates. Added `docs/QUICKSTART_15_MIN.md` and linked it prominently near the top of the README.
+- [x] The bundled skill (`skills/voice-ai-prompt-builder/`) authors a single prompt but does not walk a user through the whole repository end to end (picking a niche, confirming the install, running the demo, troubleshooting). Added `.claude/skills/voice-agent-prompt-builder/SKILL.md` for that, plus root `AGENTS.md` so Codex and other agents pick it up too.
+- [x] `pyproject.toml` and `voice_agent_prompts/__init__.py` still said version `0.1.0` even though `CHANGELOG.md` already had a `v0.1.1` entry from the previous release. Bumped both to `0.2.0` to match this release's changelog entry.
+- [x] The README test-count badge and Testing section said "123" tests; the real count changed to 129 after the fixes and additions above. Updated both so the number matches the actual `pytest -q` run (a hard requirement: test counts must match reality).
+
+## Not an issue
+
+- Keys and configuration: this repository has no calling runtime and needs no API keys, accounts, or `.env` values. The README's Configuration table already said so clearly; no `docs/GET_YOUR_KEYS.md` was added, per the rule that it is only needed for repositories that call phones.
+- `index.html` (the browser prompt maker) was not opened in an actual browser during this audit (no GUI available in this environment), but its logic is covered by an existing Node-based smoke test in the suite (skipped only if Node is unavailable).

@@ -1,0 +1,5 @@
+# Example config for a fictional real estate team. Replace every value with your own business details.
+company: "Riverbend Realty Group"
+city: "Springfield"
+property_type: "three bedroom house"
+phone: "555-0179"

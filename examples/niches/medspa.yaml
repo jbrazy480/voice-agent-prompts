@@ -1,0 +1,5 @@
+# Example config for a fictional med spa. Replace every value with your own business details.
+company: "Glow Aesthetics Med Spa"
+city: "Springfield"
+treatment: "a HydraFacial consultation"
+phone: "555-0142"

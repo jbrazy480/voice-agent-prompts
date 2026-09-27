@@ -59,6 +59,18 @@ def test_catalog_covers_all_prompt_files():
     assert len(catalog()) == len(actual)
 
 
+def test_niche_example_configs_load_render_and_lint():
+    niches_dir = ROOT / "examples" / "niches"
+    yaml_files = sorted(niches_dir.glob("*.yaml"))
+    assert yaml_files
+    for yaml_file in yaml_files:
+        prompt_file = yaml_file.with_suffix(".md")
+        assert prompt_file.is_file(), yaml_file
+        variables = load_variables(yaml_file)
+        rendered = render(prompt_file.read_text(encoding="utf-8"), variables)
+        assert not [i for i in lint(rendered) if not i.warning]
+
+
 def test_packaged_data_matches_source():
     bundled = ROOT / "voice_agent_prompts/data"
     assert (bundled / "catalog.json").read_bytes() == (ROOT / "catalog.json").read_bytes()
@@ -187,7 +199,8 @@ def test_repository_content_rules():
     import re
     ignored = {".git", ".venv", "build", "dist", ".pytest_cache", "__pycache__"}
     for path in ROOT.rglob("*"):
-        if not path.is_file() or ignored.intersection(path.parts) or any(p.endswith(".egg-info") for p in path.parts):
+        rel_parts = path.relative_to(ROOT).parts
+        if not path.is_file() or ignored.intersection(rel_parts) or any(p.endswith(".egg-info") for p in rel_parts):
             continue
         try:
             text = path.read_text(encoding="utf-8")
@@ -196,8 +209,10 @@ def test_repository_content_rules():
         assert not re.search(r"[\u2013\u2014]", text), path
         assert not any(re.search(pattern, text, re.I) for pattern in FORBIDDEN), path
         if path.suffix == ".md":
-            # URL encodings are not percentages or performance figures.
+            # URL encodings, and HTML tag attributes (e.g. width="100%"), are not
+            # percentages or performance figures.
             prose = re.sub(r"https?://[^\s)]+", "", text)
+            prose = re.sub(r"<[^>]+>", "", prose)
             assert not re.search(r"\d\s*(?:%|percent\b)|100[,]000|\b(?:conversion|booking) rates?\b", prose, re.I), path
 
 

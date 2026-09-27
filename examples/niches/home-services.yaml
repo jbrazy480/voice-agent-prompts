@@ -1,0 +1,5 @@
+# Example config for a fictional home services company. Replace every value with your own business details.
+company: "Northgate Home Services"
+city: "Springfield"
+service: "an HVAC tune-up"
+phone: "555-0157"

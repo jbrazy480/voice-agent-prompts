@@ -340,5 +340,35 @@
     "industry": "general",
     "call_type": "outbound-optin",
     "goal": "Appointment follow-up"
+  },
+  {
+    "path": "examples/niches/medspa.md",
+    "industry": "medspa",
+    "call_type": "outbound-optin",
+    "goal": "Example config: med spa consultation intake"
+  },
+  {
+    "path": "examples/niches/home-services.md",
+    "industry": "home-services",
+    "call_type": "outbound-optin",
+    "goal": "Example config: home services appointment intake"
+  },
+  {
+    "path": "examples/niches/marketing-agency.md",
+    "industry": "marketing-agency",
+    "call_type": "outbound-optin",
+    "goal": "Example config: marketing agency discovery call intake"
+  },
+  {
+    "path": "examples/niches/real-estate.md",
+    "industry": "real-estate",
+    "call_type": "outbound-optin",
+    "goal": "Example config: real estate showing intake"
+  },
+  {
+    "path": "examples/niches/insurance.md",
+    "industry": "insurance",
+    "call_type": "outbound-optin",
+    "goal": "Example config: insurance quote intake"
   }
 ]

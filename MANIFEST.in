@@ -2,6 +2,7 @@ include catalog.json index.html requirements*.txt .env.example CHANGELOG.md CONT
 recursive-include prompts *.md
 recursive-include templates *.md
 recursive-include examples *.md
+recursive-include examples *.yaml
 recursive-include framework *.md
 recursive-include modules *.md
 recursive-include skills *.md

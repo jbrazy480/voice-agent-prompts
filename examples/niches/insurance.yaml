@@ -1,0 +1,4 @@
+# Example config for a fictional insurance agency. Replace every value with your own business details.
+company: "Harborlight Insurance Group"
+coverage_type: "home and auto"
+phone: "555-0184"
